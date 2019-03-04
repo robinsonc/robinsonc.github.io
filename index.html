@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Calculator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ef3164"/>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/icon-72x72.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<link rel="manifest" href="manifest.json">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+
+				<!-- INITIAL FORM BEGIN -->
+				<form class="contact2-form" id="initial-form">
+					<span class="contact2-form-title">
+						Lumber Calculator
+					</span>
+
+					<div class="wrap-input2 validate-input" data-validate="Width is required">
+						<input class="input2" type="number" step=".01" name="width" required>
+						<span class="focus-input2" data-placeholder="Width"></span>
+					</div>
+
+					<div class="wrap-input2 validate-input" data-validate = "Thickness is required">
+						<input class="input2" type="number" step=".01" name="thickness" required>
+						<span class="focus-input2" data-placeholder="Thickness"></span>
+					</div>
+
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn">
+								Next
+							</button>
+						</div>
+					</div>
+				</form>
+				<!-- INITIAL FORM ENDS -->
+
+				<!-- LENGTH FORM BEGIN -->
+				<form class="contact2-form d-none" id="length-form">
+					<span class="contact2-form-title">
+						Lumber Calculator
+					</span>
+
+					<div class="wrap-input2 validate-input" data-validate="Length is required">
+						<input class="input2" type="number" step=".01" name="length" required>
+						<span class="focus-input2" data-placeholder="Length"></span>
+					</div>
+
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn">
+								Submit
+							</button>
+						</div>
+					</div>
+				</form>
+				<!-- LENGTH FORM END -->
+
+				<!-- DISPLAY TOTAL CUBIC BEGIN -->
+				<div id="total-cubic" class="d-none">
+					<div class="card text-center text-black h-100">
+						<div class="card-body">
+							<h6 class="text-uppercase">Total</h6>
+							<h1 class="display-4" id="cubic-sum">00.00</h1>
+							<h6 class="text-uppercase">Cubic Feet</h6>
+						</div>
+					</div>
+					<div class="total-cubic-buttons">
+						<button class="contact2-form-btn side-to-side float-left" onclick="calcGrandTotal()">Total</button>
+						<button class="contact2-form-btn side-to-side float-right" onclick="addMoreLength()">Next</button>
+					</div>
+				</div>
+				<!-- DISPLAY TOTAL CUBIC END -->
+
+				<!-- RATE FORM BEGIN -->
+				<form class="contact2-form d-none" id="amount-form">
+					<span class="contact2-form-title">
+						Lumber Calculator
+					</span>
+
+					<div class="wrap-input2 validate-input" data-validate="Length is required">
+						<input class="input2" type="number" step=".01" name="amount" required>
+						<span class="focus-input2" data-placeholder="Rate"></span>
+					</div>
+
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn">
+								Submit
+							</button>
+						</div>
+					</div>
+				</form>
+				<!-- RATE FORM END -->
+
+				<!-- DISPLAY TOTAL AMOUNT BEGIN -->
+				<div id="total-amount" class="d-none">
+					<div class="card text-center text-black h-100">
+						<div class="card-body">
+							<h6 class="text-uppercase">Total Amount</h6>
+							<h1 class="display-4" id="amount">00.00</h1>
+							<h6 class="text-uppercase">INR</h6>
+						</div>
+					</div>
+					<div class="total-cubic-buttons m-10">
+						<button class="contact2-form-btn side-to-side float-left" onclick="showGrandTotal()">Grand Total</button>
+						<button class="contact2-form-btn side-to-side float-right" onclick="addMoreSizes()">Next Size</button>
+					</div>
+				</div>
+				<!-- DISPLAY TOTAL AMOUNT END -->
+
+				<!-- DISPLAY GRAND OUTPUT BEGIN -->
+				<div id="final-output" class="d-none">
+					<div class="card text-center text-black h-100">
+						<div class="card-body">
+							<h5 class="text-uppercase">Grand Total</h5>
+							<h4 class="display-4" id="grand-cubic">00.00</h4>
+							<h6 class="text-uppercase">Cubic Feet</h6>
+
+						</div>
+					</div>
+					<div class="card text-center text-black h-100">
+						<div class="card-body">
+							<h5 class="text-uppercase">Total Amount</h5>
+							<h4 class="display-4" id="grand-amount">00.00</h4>
+							<h6 class="text-uppercase">INR</h6>
+						</div>
+					</div>
+					<div class="total-cubic-buttons text-center">
+						<a href=""><button class="contact2-form-btn side-to-side">Home</button></a>
+					</div>
+				</div>
+				<!-- DISPLAY GRAND OUTPUT END -->
+				
+			</div>
+		</div>
+	</div>
+
+<script>
+	if('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/sw.js')
+		.then(function() {
+				console.log('Service Worker Registered');
+		});
+	}
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+	<script src="js/app.js"></script>
+
+</body>
+</html>
