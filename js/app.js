@@ -19,7 +19,8 @@ let calculateTotalCubic = () => {
     const lengthForm = document.getElementById('length-form');
     const totalCubic = document.getElementById('total-cubic');
     let length = lengthForm.elements.namedItem('length').value;
-    sum = (width * thickness * length)/144;
+    let quantity = lengthForm.elements.namedItem('length').value;
+    sum = ((width * thickness * length)/144) * quantity;
     totalCubicSum += sum;
     document.getElementById('cubic-sum').textContent = totalCubicSum.toFixed(2);
     lengthForm.classList.add('d-none');
