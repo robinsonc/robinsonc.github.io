@@ -80,8 +80,8 @@
 				<div id="total-cubic" class="d-none">
 					<div class="card text-center text-black h-100">
 						<div class="card-body">
-							<h6 class="text-uppercase">Total</h6>
-							<h1 class="display-4" id="cubic-sum">00.00</h1>
+							<!-- <h6 class="text-uppercase"></h6> -->
+							<h5 class="display-4" id="cubic-sum">00.00</h5>
 							<h6 class="text-uppercase">Cubic Feet</h6>
 						</div>
 					</div>
@@ -94,11 +94,18 @@
 
 				<!-- RATE FORM BEGIN -->
 				<form class="contact2-form d-none" id="amount-form">
-					<span class="contact2-form-title">
+					<!-- <span class="contact2-form-title">
 						Lumber Calculator
-					</span>
-
-					<div class="wrap-input2 validate-input" data-validate="Length is required">
+					</span> -->
+					<div class="card text-center text-black h-100">
+						<div class="card-body">
+							<h6 class="text-uppercase">Total</h6>
+							<h5 class="display-4" id="total-cubic-sum">00.00</h5>
+							<h6 class="text-uppercase">Cubic Feet</h6>
+						</div>
+					</div>
+					<h4 class="mt-4 text-center">Enter Rate</h4>
+					<div class="wrap-input2 validate-input" data-validate="Rate is required">
 						<input class="input2" type="number" step=".01" name="amount" required>
 						<span class="focus-input2" data-placeholder="Rate"></span>
 					</div>
@@ -119,7 +126,7 @@
 					<div class="card text-center text-black h-100">
 						<div class="card-body">
 							<h6 class="text-uppercase">Total Amount</h6>
-							<h1 class="display-4" id="amount">00.00</h1>
+							<h5 class="display-4" id="amount">00.00</h5>
 							<h6 class="text-uppercase">INR</h6>
 						</div>
 					</div>
@@ -134,23 +141,24 @@
 				<div id="final-output" class="d-none">
 					<div class="card text-center text-black h-100">
 						<div class="card-body">
-							<h5 class="text-uppercase">Grand Total</h5>
-							<h4 class="display-4" id="grand-cubic">00.00</h4>
+							<h6 class="text-uppercase">Grand Total</h6>
+							<h5 class="display-4" id="grand-cubic">00.00</h5>
 							<h6 class="text-uppercase">Cubic Feet</h6>
 
 						</div>
 					</div>
-					<div class="card text-center text-black h-100">
+					<div class="card text-center text-black h-100 mt-4">
 						<div class="card-body">
-							<h5 class="text-uppercase">Total Amount</h5>
-							<h4 class="display-4" id="grand-amount">00.00</h4>
+							<h6 class="text-uppercase">Total Amount</h6>
+							<h5 class="display-4" id="grand-amount">00.00</h5>
 							<h6 class="text-uppercase">INR</h6>
 						</div>
 					</div>
 					<div class="total-cubic-buttons text-center">
-						<a href="#"><button class="contact2-form-btn side-to-side" onclick="alert('Palli poyi paranja madhi!! :-P')">Export</button></a>
+						<button class="contact2-form-btn side-to-side" onclick="exportTable()">Export</button>
 						<a href=""><button class="contact2-form-btn side-to-side">Reset</button></a>
 					</div>
+					<div id="export-table" class="d-none"></div>
 				</div>
 				<!-- DISPLAY GRAND OUTPUT END -->
 				
