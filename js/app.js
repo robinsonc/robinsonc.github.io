@@ -99,7 +99,8 @@ let addMoreSizes = () => {
 }
 
 let exportTable = () => {
-  exportTableToExcel('export-table');
+  // exportTableToExcel('export-table'); // EXCEL
+  exportPDF('export-table'); // PDF
 }
 
 // Method to EXPORT a table using JS
@@ -140,10 +141,12 @@ function exportTableToExcel(tableID, filename = ''){
 let createExportTable = () => {
   let myTableDiv = document.getElementById('export-table');
   let table = document.createElement('table');
-  let tableBody = document.createElement('tbody');
+  table.setAttribute('id', 'final-table');
+  table.setAttribute('class', 'table table-stripped');
   table.border = '1';
+  let tableBody = document.createElement('tbody');
   table.appendChild(tableBody);
-  console.log(finalArray);
+  // console.log(finalArray);
   const heading = ['Width', 'Thickness', 'Length', 'Quantity', 'Cubic', 'Rate', 'Amount'];
   // Table heading
   let tr = document.createElement('tr');
@@ -184,6 +187,11 @@ let createExportTable = () => {
   myTableDiv.append(table);
 }
 
+function exportPDF(tableID) {
+  var doc = new jsPDF();
+  doc.autoTable({html: '#final-table'});
+  doc.save('lumberExport.pdf');
+}
 
 
 
