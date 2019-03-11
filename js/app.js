@@ -105,12 +105,12 @@ let exportTable = () => {
 // Method to EXPORT a table using JS
 function exportTableToExcel(tableID, filename = ''){
   var downloadLink;
-  var dataType = 'application/vnd.ms-excel';
+  var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
   var tableSelect = document.getElementById(tableID);
   var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
   
   // Specify file name
-  filename = filename?filename+'.xls':'excel_data.xls';
+  filename = filename?filename+'.xlsx':'excel_data.xlsx';
   
   // Create download link element
   downloadLink = document.createElement("a");
@@ -176,9 +176,9 @@ let createExportTable = () => {
   let footer = document.createElement('tr');
   var finalRow = `<th></th><th></th><th></th>
                   <th></th>
-                  <th>${totalCubic.toFixed(4)}</th>
+                  <th align="right">${totalCubic.toFixed(4)}</th>
                   <th></th>
-                  <th>${totalAmount.toFixed(4)}</th>`;
+                  <th align="right">${totalAmount.toFixed(4)}</th>`;
   footer.innerHTML = finalRow;
   tableBody.appendChild(footer);
   myTableDiv.append(table);
