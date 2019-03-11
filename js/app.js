@@ -98,9 +98,13 @@ let addMoreSizes = () => {
   currentobject = {};
 }
 
-let exportTable = () => {
+let exportTableExcel = () => {
   // exportTableToExcel('export-table'); // EXCEL
-  exportPDF('export-table'); // PDF
+  dataExport(); // Datatable
+}
+
+let exportTablePDF= () => {
+  //exportPDF('export-table'); // PDF
 }
 
 // Method to EXPORT a table using JS
@@ -144,20 +148,23 @@ let createExportTable = () => {
   table.setAttribute('id', 'final-table');
   table.setAttribute('class', 'table table-stripped');
   table.border = '1';
-  let tableBody = document.createElement('tbody');
-  table.appendChild(tableBody);
+
   // console.log(finalArray);
   const heading = ['Width', 'Thickness', 'Length', 'Quantity', 'Cubic', 'Rate', 'Amount'];
   // Table heading
+  let thead = document.createElement('thead');
+  table.appendChild(thead);
   let tr = document.createElement('tr');
   for(let i=0; i< heading.length; i++) {
     let th = document.createElement('th');
     th.appendChild(document.createTextNode(heading[i]));
     tr.appendChild(th);
   }
-  tableBody.appendChild(tr);
+  thead.appendChild(tr);
   let totalCubic = 0;
   let totalAmount = 0;
+  let tableBody = document.createElement('tbody');
+  table.appendChild(tableBody);
   finalArray.forEach(function(element){
     // Table Rows
     for(let i =0; i< element.sizes.length; i++) {
@@ -176,6 +183,8 @@ let createExportTable = () => {
       totalAmount+= parseFloat(amount);
     }
   })
+  // let tableFooter = document.createElement('tfoot');
+  // table.appendChild(tableFooter);
   let footer = document.createElement('tr');
   var finalRow = `<th></th><th></th><th></th>
                   <th></th>
@@ -185,6 +194,17 @@ let createExportTable = () => {
   footer.innerHTML = finalRow;
   tableBody.appendChild(footer);
   myTableDiv.append(table);
+
+  // Create data table
+  $('#final-table').DataTable( {
+    dom: 'Bfrtip',
+    order: [[ 4, "asc" ]],
+    buttons: [
+      'excel',
+      'csv',
+      'pdf'
+    ]
+  });
 }
 
 function exportPDF(tableID) {
@@ -193,6 +213,10 @@ function exportPDF(tableID) {
   doc.save('lumberExport.pdf');
 }
 
+
+let dataExport = () => {
+  $('.buttons-csv').trigger("click");
+}
 
 
 // Event Listener to handle initial form submission

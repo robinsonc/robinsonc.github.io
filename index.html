@@ -9,6 +9,7 @@
 	<link rel="icon" type="image/png" href="images/icons/icon-72x72.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -155,7 +156,8 @@
 						</div>
 					</div>
 					<div class="total-cubic-buttons text-center">
-						<button class="contact2-form-btn side-to-side" onclick="exportTable()">Export</button>
+						<button class="contact2-form-btn side-to-side" onclick="exportTableExcel()">ExportEXCEL</button>
+						<button class="contact2-form-btn side-to-side" onclick="exportTablePDF()">ExportPDF</button>
 						<a href=""><button class="contact2-form-btn side-to-side">Reset</button></a>
 					</div>
 					<div id="export-table" class="d-none"></div>
@@ -177,11 +179,13 @@
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/jspdf/jspdf.min.js"></script>
 	<script src="vendor/jspdf/jspdf.plugin.autotable.js"></script>
-	
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/app.js"></script>
+	<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js"></script>
 
 </body>
 </html>
