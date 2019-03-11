@@ -105,7 +105,7 @@ let exportTable = () => {
 // Method to EXPORT a table using JS
 function exportTableToExcel(tableID, filename = ''){
   var downloadLink;
-  var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8';
   var tableSelect = document.getElementById(tableID);
   var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
   
