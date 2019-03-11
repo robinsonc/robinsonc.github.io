@@ -104,7 +104,7 @@ let exportTableExcel = () => {
 }
 
 let exportTablePDF= () => {
-  //exportPDF('export-table'); // PDF
+  exportPDF('export-table'); // PDF
 }
 
 // Method to EXPORT a table using JS
