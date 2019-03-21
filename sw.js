@@ -15,7 +15,12 @@ var filesToCache = [
   '/vendor/jquery/jquery-3.2.1.min.js',
   '/vendor/bootstrap/js/popper.js',
   '/vendor/bootstrap/js/bootstrap.min.js',
-  '/manifest.json'
+  '/manifest.json',
+  'http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css',
+  'https://fonts.googleapis.com/css?family=Poppins',
+  'https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js',
+  'https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js',
+  'https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js'
 ];
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');
